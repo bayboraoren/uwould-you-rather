@@ -7,6 +7,8 @@ import LoginPage from "./LoginPage";
 import LeaderBoardPage from "./LeaderBoardPage";
 import NewQuestionPage from "./NewQuestionPage";
 import QuestionDetailPage from "./QuestionDetailPage";
+import {Switch} from "react-router";
+import Page404 from "./Page404";
 
 class App extends Component {
 
@@ -16,13 +18,14 @@ class App extends Component {
         return (
             <div id={'app'}>
                 <Router>
-                    <Fragment>
-                        <Route path='/' exact={true} component={HomePage}/>
-                        <Route path='/login' exact={true} component={LoginPage}/>
-                        <Route path='/leader-board' exact={true} component={LeaderBoardPage}/>
-                        <Route path='/add' exact={true} component={NewQuestionPage}/>
+                    <Switch>
+                        <Route path='/' exact component={HomePage}/>
+                        <Route path='/login' component={LoginPage}/>
+                        <Route path='/leader-board' component={LeaderBoardPage}/>
+                        <Route path='/add'  component={NewQuestionPage}/>
                         <Route path='/questions/:id' component={QuestionDetailPage}/>
-                    </Fragment>
+                        <Route component={Page404} />
+                    </Switch>
                 </Router>
             </div>
         )
