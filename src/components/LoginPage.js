@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import {setLoggedUser} from "../actions/user-logged-action";
 import {withRouter} from "react-router";
 import {toMap} from "../utils/helpers";
+import {Button, Card, CardTitle, Carousel, Col} from 'react-materialize'
+
 
 class LoginPage extends Component {
 
@@ -23,14 +25,30 @@ class LoginPage extends Component {
 
         const {users} = this.props
 
+
         return (
             <div id={'app'}>
-                LOGIN
-                <ul>
-                    {users.map((user) => (
-                        <li key={user.id} onClick={() => this.setLoggedUser(user)}>{user.name}</li>
-                    ))}
-                </ul>
+
+                {users.length > 0 ?
+                    <Carousel>
+
+                        {users.map((user) => (
+                            <div key={user.id} className="carousel-item">
+                                <Card header={<CardTitle image={"assets/" + user.avatarURL}
+                                                         waves='light'/>}
+                                      title={user.name}
+                                      reveal={<p>Here is some more information about this product that is only revealed
+                                          once clicked on.</p>}>
+                                    <p>
+                                        <Button waves='light' onClick={() => this.setLoggedUser(user)}>Login</Button>
+                                    </p>
+                                </Card>
+                            </div>
+                        ))}
+
+                    </Carousel> : <div/>
+                }
+
             </div>
         )
     }

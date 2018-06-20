@@ -8,7 +8,7 @@ class LeaderBoardWidget extends  Component{
 
         return(
             <div>
-                <div><img src={user.avatarURL} width={100}/></div>
+                <div><img src={"assets/" + user.avatarURL} width={100}/></div>
                 <br/>
                 <div>{user.id}</div>
                 <br/>
