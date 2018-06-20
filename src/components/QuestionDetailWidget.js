@@ -4,6 +4,7 @@ import {handleSaveQuestionAnswer, saveQuestionAnswer} from "../actions/question-
 import {handleInitialData} from "../actions/shared-action";
 import {withRouter} from "react-router";
 import {saveClear} from "../actions/save-success-action";
+import {updateLoggedUser} from "../actions/user-logged-action";
 
 class QuestionDetailWidget extends Component {
 
@@ -11,6 +12,7 @@ class QuestionDetailWidget extends Component {
         e.preventDefault()
         if(this.props.userLogged.answers[this.props.id]===undefined) {
             this.props.dispatch(handleSaveQuestionAnswer(this.props.id, answer))
+            this.props.dispatch(updateLoggedUser(this.props.userLogged,this.props.id,answer))
         }else{
             alert("You voted before, you can not vote again...")
         }
