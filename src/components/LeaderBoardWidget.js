@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {getObjectLength} from "../utils/helpers";
-import {Badge, Card, CardTitle, Col, Row} from "react-materialize";
+import {Card, CardTitle, Col, Row} from "react-materialize";
 
 class LeaderBoardWidget extends Component {
     render() {
@@ -23,7 +23,7 @@ class LeaderBoardWidget extends Component {
                             <p>
                                 <div># OF QUESTION ASKED
                                     <span className="new badge blue"
-                                          data-badge-caption="asked">{getObjectLength(user.answers)}
+                                          data-badge-caption="asked">{getObjectLength(user.questions)}
                                           </span>
                                 </div>
                                 <br/>
