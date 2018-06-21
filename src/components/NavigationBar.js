@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {Redirect} from "react-router";
-import {Navbar} from "react-materialize";
+import {Redirect, withRouter} from "react-router";
+import {Button, Dropdown, Navbar, NavItem} from "react-materialize";
 
 class NavigationBar extends Component {
 
@@ -40,7 +40,9 @@ class NavigationBar extends Component {
                             </NavLink>
                         </li>
                         <li>
-                            <img src={"../assets/" + userLogged.avatarURL} style={{marginTop:10}}  width={40}/>
+                            <NavLink to='/login' activeClassName='active'>
+                                <img src={"../assets/" + userLogged.avatarURL} style={{marginTop: 10}} width={40}/>
+                            </NavLink>
                         </li>
                     </ul>
                 </Navbar>
@@ -58,4 +60,4 @@ function mapStateToProps({userLogged}) {
     }
 }
 
-export default connect(mapStateToProps)(NavigationBar)
+export default withRouter(connect(mapStateToProps)(NavigationBar))
