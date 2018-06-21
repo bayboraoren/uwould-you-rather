@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
 import {Icon, Navbar, NavItem} from "react-materialize";
@@ -16,13 +16,38 @@ class NavigationBar extends Component {
 
 
         return (
-            <Navbar brand='Would You Rather' right>
-                <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
-                <NavItem href='get-started.html'><Icon>view_module</Icon></NavItem>
-                <NavItem href='get-started.html'><Icon>refresh</Icon></NavItem>
-                <NavItem href='get-started.html'><img style={{marginTop:10}} src={"assets/" + userLogged.avatarURL} height={40}/></NavItem>
-            </Navbar>
+
+            <div>
+
+                <Navbar brand='logo' right>
+
+                    <ul>
+                        <li>
+                            <NavLink to='/' exact>
+                                Home
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to='/leader-board' activeClassName='active'>
+                                Leader Board
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink to='/add' activeClassName='active'>
+                                New Poll
+                            </NavLink>
+                        </li>
+                        <li>
+                            <img src={"../assets/" + userLogged.avatarURL} width={40}/>
+                        </li>
+                    </ul>
+                </Navbar>
+
+            </div>
         )
+
     }
 
 }
