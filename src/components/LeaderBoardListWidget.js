@@ -16,7 +16,6 @@ class LeaderBoardListWidget extends Component {
 
         return (
             <div>
-                LEADER BOARD LIST WIDGET
 
                 {users.sort((userA, userB) => {
 

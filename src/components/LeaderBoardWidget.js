@@ -1,22 +1,42 @@
 import React, {Component} from 'react';
 import {getObjectLength} from "../utils/helpers";
+import {Badge, Card, CardTitle, Col, Row} from "react-materialize";
 
-class LeaderBoardWidget extends  Component{
-    render(){
+class LeaderBoardWidget extends Component {
+    render() {
 
         const {user} = this.props
 
-        return(
+        return (
             <div>
-                <div><img src={"assets/" + user.avatarURL} width={100}/></div>
-                <br/>
-                <div>{user.id}</div>
-                <br/>
-                <div># OF QUESTION ASKED {user.questions.length}</div>
-                <br/>
-                <div># OF QUESTION ANSWERED {getObjectLength(user.answers)}</div>
-                <br/>
-                <div># OF TOTAL {user.questions.length + getObjectLength(user.answers)}</div>
+                <Row>
+                    <Col m={7} s={12}>
+                        <Card horizontal
+                              header={
+                                  <div style={{textAlign:'center'}}>
+                                      <CardTitle
+                                          image={"assets/" + user.avatarURL}/>
+                                      <span>{user.name}</span>
+                                  </div>}
+                              actions={[<div># OF TOTAL {user.questions.length + getObjectLength(user.answers)}</div>]}>
+
+                            <p>
+                                <div># OF QUESTION ASKED
+                                    <span className="new badge blue"
+                                          data-badge-caption="asked">{getObjectLength(user.answers)}
+                                          </span>
+                                </div>
+                                <br/>
+                                <div># OF QUESTION ANSWERED
+                                    <span className="new badge green"
+                                          data-badge-caption="voted">{getObjectLength(user.answers)}
+                                          </span>
+                                </div>
+                            </p>
+
+                        </Card>
+                    </Col>
+                </Row>
             </div>
         )
     }
