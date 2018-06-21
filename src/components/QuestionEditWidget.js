@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {handleSaveQuestion} from "../actions/question-action";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
+import {Button, CardPanel, Col, Row} from "react-materialize";
 
 class QuestionEditWidget extends Component {
 
@@ -31,8 +32,8 @@ class QuestionEditWidget extends Component {
 
         e.preventDefault()
 
-        const { optionOneText,optionTwoText } = this.state
-        const { dispatch } = this.props
+        const {optionOneText, optionTwoText} = this.state
+        const {dispatch} = this.props
 
         dispatch(handleSaveQuestion(optionOneText, optionTwoText))
         this.props.history.push("/");
@@ -42,13 +43,20 @@ class QuestionEditWidget extends Component {
     render() {
         return (
             <div>
-                <b>WOULD YOU RATHER ?</b>
-                <br/>
-                <textarea placeholder={'OPTION ONE'} onChange={this.handleChangeOptionOne}/>
-                <br/>
-                <textarea placeholder={'OPTION TWO'} onChange={this.handleChangeOptionTwo}/>
-                <br/>
-                <button onClick={this.handleSave}>Save</button>
+                <CardPanel>
+                    <Row>
+                        <b>WOULD YOU RATHER ?</b>
+                    </Row>
+                    <Row>
+                        <textarea placeholder={'OPTION ONE'} onChange={this.handleChangeOptionOne}/>
+                    </Row>
+                    <Row>
+                        <textarea placeholder={'OPTION TWO'} onChange={this.handleChangeOptionTwo}/>
+                    </Row>
+                    <Row>
+                        <Button onClick={this.handleSave}>Save</Button>
+                    </Row>
+                </CardPanel>
             </div>
         )
     }

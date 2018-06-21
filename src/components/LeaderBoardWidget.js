@@ -13,22 +13,24 @@ class LeaderBoardWidget extends Component {
                     <Col m={7} s={12}>
                         <Card horizontal
                               header={
-                                  <div style={{textAlign:'center'}}>
+                                  <div>
                                       <CardTitle
-                                          image={"assets/" + user.avatarURL}/>
-                                      <span>{user.name}</span>
+                                          image={"assets/" + user.avatarURL} style={{display: 'contents'}}>
+                                      </CardTitle>
+                                      <span style={{textAlign:'center',display:'block',fontWeight:'bold'}}>{user.name}</span>
+
                                   </div>}
                               actions={[<div># OF TOTAL {user.questions.length + getObjectLength(user.answers)}</div>]}>
 
                             <p>
-                                <div># OF QUESTION ASKED
+                                <div>QUESTION ASKED
                                     <span className="new badge blue"
                                           data-badge-caption="asked">{getObjectLength(user.questions)}
                                           </span>
                                 </div>
                                 <br/>
-                                <div># OF QUESTION ANSWERED
-                                    <span className="new badge green"
+                                <div>QUESTION ANSWERED
+                                    <span className="new badge #26a69a"
                                           data-badge-caption="voted">{getObjectLength(user.answers)}
                                           </span>
                                 </div>

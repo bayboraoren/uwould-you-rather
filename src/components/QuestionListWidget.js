@@ -25,6 +25,7 @@ class QuestionListWidget extends Component {
                     <input
                         id="filterId"
                         type="checkbox"
+                        className="filled-in"
                         checked={filterQuestion}
                         onChange={this.handleFilter}
                     />

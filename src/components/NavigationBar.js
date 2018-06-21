@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom'
+import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
-import {Icon, Navbar, NavItem} from "react-materialize";
+import {Navbar} from "react-materialize";
 
 class NavigationBar extends Component {
 
@@ -19,7 +19,7 @@ class NavigationBar extends Component {
 
             <div>
 
-                <Navbar brand='logo' right>
+                <Navbar brand='...WOULD YOU RATHER ?' right>
 
                     <ul>
                         <li>
@@ -40,7 +40,7 @@ class NavigationBar extends Component {
                             </NavLink>
                         </li>
                         <li>
-                            <img src={"../assets/" + userLogged.avatarURL} width={40}/>
+                            <img src={"../assets/" + userLogged.avatarURL} style={{marginTop:10}}  width={40}/>
                         </li>
                     </ul>
                 </Navbar>
