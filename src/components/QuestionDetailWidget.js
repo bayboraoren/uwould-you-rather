@@ -13,8 +13,8 @@ class QuestionDetailWidget extends Component {
     handleClick = (e, answer) => {
         e.preventDefault()
         if (this.props.userLogged.answers[this.props.id] === undefined) {
-            this.props.dispatch(handleSaveQuestionAnswer(this.props.id, answer))
-            this.props.dispatch(updateLoggedUser(this.props.userLogged, this.props.id, answer))
+            this.props.handleSaveQuestionAnswer(this.props.id, answer)
+            this.props.updateLoggedUser(this.props.userLogged, this.props.id, answer)
         } else {
             alert("You voted before, you can not vote again...")
         }
@@ -26,9 +26,7 @@ class QuestionDetailWidget extends Component {
         const author = users[question.author]
         const optionOneVotesLength = question.optionOne.votes.length
         const optionTwoVotesLength = question.optionTwo.votes.length
-        const votesTotalLength = optionOneVotesLength + optionTwoVotesLength
         const answered = optionOneVotesLength + optionTwoVotesLength > 0
-
 
         const pieData = [
             {key: question.optionOne.text, value: optionOneVotesLength},
@@ -37,8 +35,8 @@ class QuestionDetailWidget extends Component {
 
         if (saveSuccess === true) {
             alert("Question Voted Successfully, thank you...")
-            this.props.dispatch(handleInitialData())
-            this.props.dispatch(saveClear())
+            this.props.handleInitialData()
+            this.props.saveClear()
             this.props.history.push("/");
         }
 
@@ -100,4 +98,4 @@ function mapStateToProps({userLogged, questions, users, saveSuccess}, {id}) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(QuestionDetailWidget))
+export default withRouter(connect(mapStateToProps,{handleSaveQuestionAnswer,updateLoggedUser,handleInitialData,saveClear})(QuestionDetailWidget))

@@ -3,19 +3,13 @@ import {connect} from "react-redux";
 import {toMap} from "../utils/helpers";
 import QuestionWidget from "./QuestionWidget";
 import {filterQuestion} from "../actions/filter-question-action";
-import {CardPanel, Col, Row} from "react-materialize";
+import {CardPanel, Row} from "react-materialize";
 
 class QuestionListWidget extends Component {
 
-
-    handleFilter = (e) => {
-        this.props.dispatch(filterQuestion(e.target.checked))
-    }
-
-
     render() {
 
-        const {questions, filterQuestion} = this.props
+        const {questions, isQuestionFiltered,filterQuestion} = this.props
 
         return (
 
@@ -26,8 +20,8 @@ class QuestionListWidget extends Component {
                         id="filterId"
                         type="checkbox"
                         className="filled-in"
-                        checked={filterQuestion}
-                        onChange={this.handleFilter}
+                        checked={isQuestionFiltered}
+                        onChange={(e)=>{filterQuestion(e.target.checked)}}
                     />
                     <label htmlFor={'filterId'}>
                         Unanswered Questions
@@ -39,7 +33,7 @@ class QuestionListWidget extends Component {
                 <Row>
                     {
                         questions.filter((question) => {
-                            if (filterQuestion) {
+                            if (isQuestionFiltered) {
                                 return question.optionOne.votes.length === 0 && question.optionTwo.votes.length === 0
                             } else {
                                 return question.optionOne.votes.length !== 0 || question.optionTwo.votes.length !== 0
@@ -60,9 +54,9 @@ function mapStateToProps({questions, userLogged, filterQuestion}) {
     return {
         userLogged,
         questions: toMap(questions),
-        filterQuestion: filterQuestion
+        isQuestionFiltered: filterQuestion
     }
 }
 
-export default connect(mapStateToProps)(QuestionListWidget)
+export default connect(mapStateToProps,{filterQuestion})(QuestionListWidget)
 

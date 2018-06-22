@@ -12,12 +12,12 @@ class LoginPage extends Component {
 
 
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        this.props.handleInitialData()
     }
 
 
     loggedUser = (user) => {
-        this.props.dispatch(setLoggedUser(user))
+        this.props.setLoggedUser(user)
         this.props.history.push("/");
     }
 
@@ -27,7 +27,7 @@ class LoginPage extends Component {
 
 
         return (
-            <div id={'app'}>
+            <div>
 
                 {users.length > 0 ?
                     <Carousel>
@@ -62,4 +62,4 @@ function mapStateToProps({users, userLogged}) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(LoginPage))
+export default withRouter(connect(mapStateToProps,{setLoggedUser,handleInitialData})(LoginPage))

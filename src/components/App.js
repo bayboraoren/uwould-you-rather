@@ -12,9 +12,7 @@ import Page404 from "./Page404";
 
 class App extends Component {
 
-
     render() {
-
         return (
             <div id={'app'}>
                 <Router>
@@ -22,16 +20,15 @@ class App extends Component {
                         <Route path='/' exact component={HomePage}/>
                         <Route path='/login' component={LoginPage}/>
                         <Route path='/leader-board' component={LeaderBoardPage}/>
-                        <Route path='/add'  component={NewQuestionPage}/>
+                        <Route path='/add' component={NewQuestionPage}/>
                         <Route path='/questions/:id' component={QuestionDetailPage}/>
-                        <Route component={Page404} />
+                        <Route component={Page404}/>
                     </Switch>
                 </Router>
             </div>
         )
     }
 }
-
 
 function mapStateToProps({userLogged}) {
     return {

@@ -1,4 +1,4 @@
-import {FILTER_QUESTION} from "../actions/filter-question-action"
+import {FILTER_QUESTION} from "../actions/action-types"
 
 export default function filterQuestionReducer(state = {}, action) {
     switch (action.type) {

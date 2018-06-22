@@ -1,4 +1,4 @@
-import {SAVE_CLEAR, SAVE_SUCCESS} from "../actions/save-success-action";
+import {SAVE_CLEAR, SAVE_SUCCESS} from "../actions/action-types";
 
 export default function saveSuccessReducer(state = {}, action) {
     switch (action.type) {

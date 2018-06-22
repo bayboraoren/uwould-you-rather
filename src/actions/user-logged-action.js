@@ -1,5 +1,6 @@
-export const SET_LOGGED_USER = 'SET_LOGGED_USER'
-export const UPDATE_LOGGED_USER = 'UPDATE_LOGGED_USER'
+import {SET_LOGGED_USER} from "./action-types"
+import {UPDATE_LOGGED_USER} from "./action-types"
+
 
 export function setLoggedUser (user){
     return{

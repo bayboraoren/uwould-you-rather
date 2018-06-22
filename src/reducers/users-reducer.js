@@ -1,4 +1,4 @@
-import {RECEIVE_USERS} from "../actions/users-action"
+import {RECEIVE_USERS} from "../actions/action-types"
 
 export default function usersReducer(state = {}, action) {
     switch (action.type) {

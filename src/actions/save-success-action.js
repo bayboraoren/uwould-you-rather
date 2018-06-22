@@ -1,5 +1,5 @@
-export const SAVE_SUCCESS = 'SAVE_SUCCESS'
-export const SAVE_CLEAR = 'SAVE_CLEAR'
+import {SAVE_SUCCESS} from "./action-types"
+import {SAVE_CLEAR} from "./action-types"
 
 export function saveSuccess(saved){
     return {

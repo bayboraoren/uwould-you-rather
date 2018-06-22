@@ -7,7 +7,7 @@ import {handleInitialData} from "../actions/shared-action";
 class LeaderBoardListWidget extends Component {
 
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        this.props.handleInitialData()
     }
 
     render() {
@@ -41,5 +41,5 @@ function mapStateToProps({users, userLogged}) {
     }
 }
 
-export default connect(mapStateToProps)(LeaderBoardListWidget)
+export default connect(mapStateToProps,{handleInitialData})(LeaderBoardListWidget)
 

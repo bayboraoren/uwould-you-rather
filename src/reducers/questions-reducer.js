@@ -1,4 +1,4 @@
-import {RECEIVE_QUESTIONS, ADD_QUESTION} from "../actions/question-action"
+import {RECEIVE_QUESTIONS, ADD_QUESTION} from "../actions/action-types"
 
 export default function questionsReducer(state = {}, action) {
     switch (action.type) {

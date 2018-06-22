@@ -1,4 +1,4 @@
-export const FILTER_QUESTION = 'FILTER_QUESTION'
+import {FILTER_QUESTION} from "./action-types"
 
 export function filterQuestion (filterQuestion){
     return{

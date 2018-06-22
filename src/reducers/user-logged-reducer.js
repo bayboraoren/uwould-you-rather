@@ -1,4 +1,4 @@
-import {SET_LOGGED_USER, UPDATE_LOGGED_USER} from "../actions/user-logged-action";
+import {SET_LOGGED_USER, UPDATE_LOGGED_USER} from "../actions/action-types"
 
 export default function userLoggedReducer(state = {}, action) {
     switch (action.type) {
