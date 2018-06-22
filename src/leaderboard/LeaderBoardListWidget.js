@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import LeaderBoardWidget from "./LeaderBoardWidget";
 import {connect} from "react-redux";
 import {getObjectLength, toMap} from "../utils/helpers";
-import {handleInitialData} from "../actions/shared-action";
+import {handleInitialData} from "../app/AppAction";
 
 class LeaderBoardListWidget extends Component {
 
@@ -12,15 +12,15 @@ class LeaderBoardListWidget extends Component {
 
     render() {
 
-        const {users} = this.props
+        const {userList} = this.props
 
         return (
             <div>
 
-                {users.sort((userA, userB) => {
+                {userList.sort((userA, userB) => {
 
-                    const userATotal = userA.questions.length + getObjectLength(userA.answers)
-                    const userBTotal = userB.questions.length + getObjectLength(userB.answers)
+                    const userATotal = userA.questionList.length + getObjectLength(userA.answers)
+                    const userBTotal = userB.questionList.length + getObjectLength(userB.answers)
 
                     return  userATotal <= userBTotal
 
@@ -34,9 +34,9 @@ class LeaderBoardListWidget extends Component {
 }
 
 
-function mapStateToProps({users, userLogged}) {
+function mapStateToProps({userList, userLogged}) {
     return {
-        users: toMap(users),
+        userList: toMap(userList),
         userLogged: userLogged
     }
 }

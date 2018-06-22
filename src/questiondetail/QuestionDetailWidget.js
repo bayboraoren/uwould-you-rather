@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from "react-redux";
-import {handleSaveQuestionAnswer, saveQuestionAnswer} from "../actions/question-action";
-import {handleInitialData} from "../actions/shared-action";
+import {handleInitialData} from "../app/AppAction";
 import {withRouter} from "react-router";
-import {saveClear} from "../actions/save-success-action";
-import {updateLoggedUser} from "../actions/user-logged-action";
 import {Badge, CardPanel, Col, Collection, CollectionItem, Row} from "react-materialize";
 import {Legend, PieChart} from 'react-easy-chart'
+import {handleSaveQuestionAnswer, saveClear} from "./SaveQuestionAnswerAction";
+import {updateLoggedUser} from "../login/loginAction";
 
 class QuestionDetailWidget extends Component {
 
@@ -22,8 +21,8 @@ class QuestionDetailWidget extends Component {
 
     render() {
 
-        const {question, users, saveSuccess} = this.props
-        const author = users[question.author]
+        const {question, userList, saveSuccess} = this.props
+        const author = userList[question.author]
         const optionOneVotesLength = question.optionOne.votes.length
         const optionTwoVotesLength = question.optionTwo.votes.length
         const answered = optionOneVotesLength + optionTwoVotesLength > 0
@@ -86,13 +85,13 @@ class QuestionDetailWidget extends Component {
 
 }
 
-function mapStateToProps({userLogged, questions, users, saveSuccess}, {id}) {
-    const question = questions[id]
+function mapStateToProps({userLogged, questionList, userList, saveSuccess}, {id}) {
+    const question = questionList[id]
 
     return {
         id,
         question,
-        users,
+        userList: userList,
         userLogged,
         saveSuccess,
     }

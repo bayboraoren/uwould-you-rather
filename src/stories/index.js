@@ -5,14 +5,14 @@ import {action} from '@storybook/addon-actions';
 import {linkTo} from '@storybook/addon-links';
 
 import {Button, Welcome} from '@storybook/react/demo'
-import reducer from "../reducers"
+import reducer from '../app/AppReducers'
 import middleware from "../middleware"
 import {Provider} from 'react-redux'
-import LoginPage from "../components/LoginPage";
+import LoginPage from "../login/LoginPage";
 import {createStore} from "redux";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../app/NavigationBar";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import HomePage from "../components/HomePage";
+import HomePage from "../home/HomePage";
 
 import '../index.css'
 

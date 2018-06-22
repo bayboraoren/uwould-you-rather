@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../app/NavigationBar";
 import QuestionEditWidget from "./QuestionEditWidget";
 
 class NewQuestionPage extends  Component{

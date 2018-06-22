@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {toMap} from "../utils/helpers";
 import QuestionWidget from "./QuestionWidget";
-import {filterQuestion} from "../actions/filter-question-action";
+import {filterQuestion} from "./isQuestionFilteredAction";
 import {CardPanel, Row} from "react-materialize";
 
 class QuestionListWidget extends Component {
 
     render() {
 
-        const {questions, isQuestionFiltered,filterQuestion} = this.props
+        const {questionList, isQuestionFiltered,filterQuestion} = this.props
 
         return (
 
@@ -32,7 +32,7 @@ class QuestionListWidget extends Component {
 
                 <Row>
                     {
-                        questions.filter((question) => {
+                        questionList.filter((question) => {
                             if (isQuestionFiltered) {
                                 return question.optionOne.votes.length === 0 && question.optionTwo.votes.length === 0
                             } else {
@@ -50,10 +50,10 @@ class QuestionListWidget extends Component {
 }
 
 
-function mapStateToProps({questions, userLogged, filterQuestion}) {
+function mapStateToProps({questionList, userLogged, filterQuestion}) {
     return {
         userLogged,
-        questions: toMap(questions),
+        questionList: toMap(questionList),
         isQuestionFiltered: filterQuestion
     }
 }

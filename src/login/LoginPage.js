@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
 import '../App.css';
-import {handleInitialData} from "../actions/shared-action";
+import {handleInitialData} from "../app/AppAction";
 import {connect} from "react-redux";
-import {setLoggedUser} from "../actions/user-logged-action"
 import {withRouter} from "react-router";
 import {toMap} from "../utils/helpers";
 import {Button, Card, CardTitle, Carousel, Col} from 'react-materialize'
+import {setLoggedUser} from "./loginAction";
 
 
 class LoginPage extends Component {
 
-
     componentDidMount() {
         this.props.handleInitialData()
     }
-
 
     loggedUser = (user) => {
         this.props.setLoggedUser(user)
@@ -23,16 +21,16 @@ class LoginPage extends Component {
 
     render() {
 
-        const {users} = this.props
+        const {userList} = this.props
 
 
         return (
             <div>
 
-                {users.length > 0 ?
+                {userList.length > 0 ?
                     <Carousel>
 
-                        {users.map((user) => (
+                        {userList.map((user) => (
                             <div key={user.id} className="carousel-item">
                                 <Card header={<CardTitle image={"assets/" + user.avatarURL}
                                                          waves='light'/>}
@@ -55,9 +53,9 @@ class LoginPage extends Component {
 }
 
 
-function mapStateToProps({users, userLogged}) {
+function mapStateToProps({userList, userLogged}) {
     return {
-        users: toMap(users),
+        userList: toMap(userList),
         userLogged: userLogged
     }
 }

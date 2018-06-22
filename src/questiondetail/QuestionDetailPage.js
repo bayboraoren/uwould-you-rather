@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from "react-redux";
 import QuestionDetailWidget from "./QuestionDetailWidget";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../app/NavigationBar";
 
 class QuestionDetailPage extends Component {
     render() {
@@ -17,7 +17,7 @@ class QuestionDetailPage extends Component {
     }
 }
 
-function mapStateToProps({userLogged, questions, users}, props) {
+function mapStateToProps({userLogged}, props) {
     const {id} = props.match.params
 
     return {

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {handleSaveQuestion} from "../actions/question-action";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {Button, CardPanel, Col, Row} from "react-materialize";
+import {handleNewQuestion} from "./newQuestionAction";
+import {handleInitialData} from "../app/AppAction";
 
 class QuestionEditWidget extends Component {
 
@@ -35,8 +36,9 @@ class QuestionEditWidget extends Component {
         const {optionOneText, optionTwoText} = this.state
         const {dispatch} = this.props
 
-        dispatch(handleSaveQuestion(optionOneText, optionTwoText))
-        this.props.history.push("/");
+        dispatch(handleNewQuestion(optionOneText, optionTwoText))
+        dispatch(handleInitialData())
+        this.props.history.push("/")
 
     }
 

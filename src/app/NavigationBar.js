@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import {Redirect, withRouter} from "react-router";
-import {Button, Dropdown, Navbar, NavItem} from "react-materialize";
+import {Navbar} from "react-materialize";
 
 class NavigationBar extends Component {
 
@@ -14,13 +14,9 @@ class NavigationBar extends Component {
             return <Redirect to='/login'/>
         }
 
-
         return (
-
             <div>
-
                 <Navbar brand='...WOULD YOU RATHER ?' right>
-
                     <ul>
                         <li>
                             <NavLink to='/' exact>
@@ -46,12 +42,9 @@ class NavigationBar extends Component {
                         </li>
                     </ul>
                 </Navbar>
-
             </div>
         )
-
     }
-
 }
 
 function mapStateToProps({userLogged}) {

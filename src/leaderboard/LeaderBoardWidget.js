@@ -20,12 +20,12 @@ class LeaderBoardWidget extends Component {
                                       <span style={{textAlign:'center',display:'block',fontWeight:'bold'}}>{user.name}</span>
 
                                   </div>}
-                              actions={[<div># OF TOTAL {user.questions.length + getObjectLength(user.answers)}</div>]}>
+                              actions={[<div># OF TOTAL {user.questionList.length + getObjectLength(user.answers)}</div>]}>
 
                             <p>
                                 <div>QUESTION ASKED
                                     <span className="new badge blue"
-                                          data-badge-caption="asked">{getObjectLength(user.questions)}
+                                          data-badge-caption="asked">{getObjectLength(user.questionList)}
                                           </span>
                                 </div>
                                 <br/>

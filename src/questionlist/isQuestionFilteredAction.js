@@ -1,4 +1,4 @@
-import {FILTER_QUESTION} from "./action-types"
+import {FILTER_QUESTION} from "../app/AppActionTypes"
 
 export function filterQuestion (filterQuestion){
     return{

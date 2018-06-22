@@ -8,7 +8,7 @@ let users = {
             "am8ehyc8byjqgar0jgpub9": 'optionTwo',
             "loxhs1bqm25b708cmbf3g": 'optionTwo'
         },
-        questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+        questionList: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
     },
     tylermcginnis: {
         id: 'tylermcginnis',
@@ -18,7 +18,7 @@ let users = {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
         },
-        questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
+        questionList: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
     },
     johndoe: {
         id: 'johndoe',
@@ -29,7 +29,7 @@ let users = {
             "vthrdm985a262al8qx3do": 'optionTwo',
             "6ni6ok3ym7mf1p33lnez": 'optionOne'
         },
-        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+        questionList: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
     }
 }
 
@@ -161,7 +161,7 @@ export function _saveQuestion (question) {
                 ...users,
                 [authedUser]: {
                     ...users[authedUser],
-                    questions: users[authedUser].questions.concat([formattedQuestion.id])
+                    questionList: users[authedUser].questionList.concat([formattedQuestion.id])
                 }
             }
 

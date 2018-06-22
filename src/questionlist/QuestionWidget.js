@@ -32,8 +32,8 @@ class QuestionWidget extends Component {
 }
 
 
-function mapStateToProps({userLogged, users, questions}, {id}) {
-    const question = questions[id]
+function mapStateToProps({userLogged, questionList}, {id}) {
+    const question = questionList[id]
 
     return {
         userLogged,
