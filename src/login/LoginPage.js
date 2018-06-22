@@ -4,7 +4,7 @@ import {handleInitialData} from "../app/AppAction";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {toMap} from "../utils/helpers";
-import {Button, Card, CardTitle, Carousel, Col} from 'react-materialize'
+import {Button, Card, CardTitle, Carousel, Col, Row} from 'react-materialize'
 import {setLoggedUser} from "./loginAction";
 
 
@@ -28,11 +28,10 @@ class LoginPage extends Component {
             <div>
 
                 {userList.length > 0 ?
-                    <Carousel>
-
+                    <Row>
                         {userList.map((user) => (
-                            <div key={user.id} className="carousel-item">
-                                <Card header={<CardTitle image={"assets/" + user.avatarURL}
+                            <Col>
+                                <Card style={{width:250}} header={<CardTitle image={"assets/" + user.avatarURL}
                                                          waves='light'/>}
                                       title={user.name}
                                       reveal={<p>Here is some more information about this product that is only revealed
@@ -41,10 +40,10 @@ class LoginPage extends Component {
                                         <Button waves='light' onClick={() => this.loggedUser(user)}>Login</Button>
                                     </p>
                                 </Card>
-                            </div>
+                            </Col>
                         ))}
 
-                    </Carousel> : <div/>
+                    </Row> : <div/>
                 }
 
             </div>
