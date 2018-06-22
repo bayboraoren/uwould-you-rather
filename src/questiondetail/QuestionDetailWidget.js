@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from "react-redux";
 import {handleInitialData} from "../app/AppAction";
-import {withRouter} from "react-router";
+import {Redirect, withRouter} from "react-router";
 import {Badge, CardPanel, Col, Collection, CollectionItem, Row} from "react-materialize";
 import {Legend, PieChart} from 'react-easy-chart'
 import {handleSaveQuestionAnswer, saveClear} from "./SaveQuestionAnswerAction";
@@ -20,6 +20,12 @@ class QuestionDetailWidget extends Component {
     }
 
     render() {
+
+        const {userLogged} = this.props
+
+        if (userLogged.id === undefined) {
+            return <Redirect to='/login'/>
+        }
 
         const {question, userList, saveSuccess} = this.props
         const author = userList[question.author]
